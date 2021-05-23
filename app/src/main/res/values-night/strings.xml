@@ -3,4 +3,10 @@
     <string name="Save">Save</string>
     <string name="Family">Family</string>
     <string name="friends">Friends</string>
+    <string name="family">Family</string>
+    <string name="school">School</string>
+    <string name="colleagues">Coll</string>
+    <string name="work">Work</string>
+    <string name="colleague">Colleagues</string>
+    <string name="home">Home</string>
 </resources>
