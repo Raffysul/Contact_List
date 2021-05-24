@@ -5,30 +5,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contact_list.databinding.ContactListItemBinding
 
-class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
     private val contacts = mutableListOf<Contact>()
 
-    inner class ViewHolder(private val binding: ContactItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(contact: Contact){
+    inner class ContactViewHolder(private val binding: ContactListItemBinding): RecyclerView.ViewHolder(binding.root){
+        fun bindItem(contact: Contact){
             binding.name.text = contact.name
             binding.number.text = contact.number
         }
     }
 
     fun setupContacts(contact: List<Contact>){
-        contacts.addAll(contact)
+        this.contacts.addAll(contact)
 
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ContactItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
+        return ContactViewHolder(ContactListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder:ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder:ContactViewHolder, position: Int) {
         val contact = contacts[position]
-        holder.bind(contact)
+        holder.bindItem(contact)
 
     }
 

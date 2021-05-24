@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpData(binding: ActivityMainBinding){
         binding.contacts.adapter = adapter
+        binding.contacts.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
         val builder = AlertDialog.Builder(this)
         val view = layoutInflater.inflate(R.layout.add_contact_dialog,null)
         builder.setView(view)
